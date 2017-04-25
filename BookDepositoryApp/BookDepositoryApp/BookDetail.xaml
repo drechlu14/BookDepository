@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookDepositoryApp"
         mc:Ignorable="d"
-        Title="BookDetail" Height="550" Width="725" >
+        Title="BookDetail" Height="550" Width="725" WindowStartupLocation="CenterScreen" >
     <StackPanel>
         <Label x:Name="DetailInformation" Content="Detail information" FontSize="22" FontWeight="DemiBold" />
 

@@ -5,9 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookDepositoryApp"
         mc:Ignorable="d"
-        Title="Login" Height="550" Width="725" >
+        Title="Login" Height="550" Width="725" WindowStartupLocation="CenterScreen" >
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
         <Label x:Name="UserLogin" Content="User login" FontSize="22" FontWeight="DemiBold" />
 
+        <StackPanel Grid.Column="1">
+            <TextBox x:Name="UsernameLogin" Text="Username" FontSize="22"/>
+            <TextBox x:Name="PasswordLogin" Text="Password" FontSize="22"/>
+        </StackPanel>
+
+        <Button Grid.Row="1" x:Name="buttonBack" Click="buttonBack_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Back" Width="100" />
+        
     </Grid>
 </Window>
