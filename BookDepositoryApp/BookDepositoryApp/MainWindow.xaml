@@ -41,7 +41,9 @@
                             <TextBlock x:Name="NameList" Text="{Binding Name}" FontWeight="Bold" />
                             <TextBlock Text=" " />
                             <TextBlock x:Name="AuthorList" Text="{Binding Author}" FontWeight="Bold" />
-                            <TextBlock x:Name="GenreList" Visibility="Hidden" Text="{Binding Genre}" />
+                        <TextBlock Text=" " />
+                        <TextBlock x:Name="PriceList" Text="{Binding Price}" FontWeight="Bold" />
+                        <TextBlock x:Name="GenreList" Visibility="Hidden" Text="{Binding Genre}" />
                             <TextBlock x:Name="PageList" Visibility="Hidden" Text="{Binding Page}" />
                             <TextBlock x:Name="ISBNList" Visibility="Hidden" Text="{Binding ISBN}" />
                         </WrapPanel>

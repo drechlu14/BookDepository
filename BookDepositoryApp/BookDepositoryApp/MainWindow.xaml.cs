@@ -38,6 +38,7 @@ namespace BookDepositoryApp
                 book.Genre = "Fantasy";
                 book.Page = 222;
                 book.ISBN = "8119898198189";
+                book.Price = 274;
                 book.Done = 0;
                 Database.SaveItemAsync(book);
 
@@ -47,6 +48,7 @@ namespace BookDepositoryApp
                 book1.Genre = "Fantasy";
                 book1.Page = 258;
                 book1.ISBN = "8119898198180";
+                book.Price = 282;
                 book1.Done = 0;
                 Database.SaveItemAsync(book1);
             }
