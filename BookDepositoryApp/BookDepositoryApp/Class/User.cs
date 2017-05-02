@@ -13,6 +13,7 @@ namespace BookDepositoryApp.Class
         public int ID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public Address Address { get; set; }
 
 
         public DateTime Date { get; set; }

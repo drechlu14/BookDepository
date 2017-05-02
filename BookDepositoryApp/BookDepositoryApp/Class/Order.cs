@@ -8,5 +8,8 @@ namespace BookDepositoryApp
 {
     class Order
     {
+        public int ID { get; set; }
+        public int OrderNumber { get; set; }
+        public string Items { get; set; }
     }
 }

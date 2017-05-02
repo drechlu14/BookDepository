@@ -115,6 +115,8 @@
     <Compile Include="BookDetail.xaml.cs">
       <DependentUpon>BookDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class\Address.cs" />
+    <Compile Include="Class\Author.cs" />
     <Compile Include="Class\Genre.cs" />
     <Compile Include="Class\Order.cs" />
     <Compile Include="Class\User.cs" />
@@ -185,6 +187,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
