@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace BookDepositoryApp.Class
 {
     class Author
     {
+        [PrimaryKey, AutoIncrement]
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Book Book { get; set; }

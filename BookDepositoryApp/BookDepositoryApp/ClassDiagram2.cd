@@ -1,21 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BookDepositoryApp.Book">
-    <Position X="7.75" Y="1" Width="1.5" />
+    <Position X="8.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAQAQgAAAgAIAAAQAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AABACAAAAQAQgAAAgAIAAAQAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>Class\Book.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BookID" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="BookDepositoryApp.Class.Genre">
-    <Position X="5" Y="3.75" Width="1.5" />
+    <Position X="6" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgABAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAgAAAAgABAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Class\Genre.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GenreID" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="BookDepositoryApp.Order">
-    <Position X="5.25" Y="1" Width="1.5" />
+    <Position X="5.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Class\Order.cs</FileName>
@@ -24,15 +30,16 @@
   <Class Name="BookDepositoryApp.Class.User">
     <Position X="3" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAQAAAAAAAAAAAAADAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAABAAAAAAgQAAAQAAAAAAAAAAAAADAAAAAAAAAAA=</HashCode>
       <FileName>Class\User.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Address" />
+      <Property Name="OrderID" />
+      <Property Name="UserGenreID" />
     </ShowAsAssociation>
   </Class>
   <Class Name="BookDepositoryApp.Class.UserGenre">
-    <Position X="2.5" Y="3.75" Width="1.5" />
+    <Position X="2.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgABAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Class\UserGenre.cs</FileName>
@@ -44,9 +51,12 @@
       <HashCode>AAAAAAAAACAAAAAIAAAAAAAAAAIAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Class\Address.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserAddress" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="BookDepositoryApp.Class.Author">
-    <Position X="10.75" Y="2" Width="1.5" />
+    <Position X="11.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Class\Author.cs</FileName>

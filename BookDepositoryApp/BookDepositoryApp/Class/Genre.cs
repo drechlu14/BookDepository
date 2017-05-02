@@ -13,5 +13,6 @@ namespace BookDepositoryApp.Class
         public int ID { get; set; }
         public string Type { get; set; }
         public string Book { get; set; }
+        public UserGenre GenreID { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace BookDepositoryApp.Class
 {
     public class Address
     {
+        [PrimaryKey, AutoIncrement]
         public User UserAddress { get; set; }
         public string PostNumber { get; set; }
         public string City { get; set; }
