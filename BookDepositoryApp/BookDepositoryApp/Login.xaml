@@ -21,6 +21,7 @@
         <StackPanel Grid.Column="1">
             <TextBox x:Name="UsernameLogin" Text="Username" FontSize="22"/>
             <TextBox x:Name="PasswordLogin" Text="Password" FontSize="22"/>
+            <Button Grid.Column="0" x:Name="buttonFantasy" Click="buttonLogin_Click" HorizontalAlignment="Center" Margin="10,10,0,10" Content="Login" Width="200" />
         </StackPanel>
 
         <Button Grid.Row="1" x:Name="buttonBack" Click="buttonBack_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Back" Width="100" />

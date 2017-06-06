@@ -12,7 +12,7 @@ namespace BookDepositoryApp.Class
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Type { get; set; }
-        public string Book { get; set; }
+        public string BookID { get; set; }
     }
 }
 

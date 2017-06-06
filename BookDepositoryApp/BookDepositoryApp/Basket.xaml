@@ -5,9 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookDepositoryApp"
         mc:Ignorable="d"
-        Title="Basket" Height="550" Width="725" >
+        Title="Basket" Height="550" Width="725" WindowStartupLocation="CenterScreen" >
     <Grid>
-        <Label x:Name="UserBasket" Content="Basket" FontSize="22" FontWeight="DemiBold" />
+      
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+            <Label x:Name="UserBasket" Content="Basket" FontSize="22" FontWeight="DemiBold" />
 
+        <StackPanel>
+            <ListView Grid.Column="1" Margin="0,60,0,0" Width="600" x:Name="ToDoItemsListView" HorizontalAlignment="Right" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Margin="20,0,0,10">
+                            <TextBlock x:Name="IDList" Visibility="Hidden" Text="{Binding ID}" />
+                            <TextBlock x:Name="NameList" Text="{Binding Name}" FontWeight="Bold" />
+                            <TextBlock Text=" " />
+                            <TextBlock x:Name="AuthorList" Text="{Binding Author}" FontWeight="Bold" />
+                            <TextBlock Text=" " />
+                            <TextBlock x:Name="PriceList" Text="{Binding Price}" FontWeight="Bold" />
+                            <TextBlock x:Name="GenreList" Visibility="Hidden" Text="{Binding Genre}" />
+                            <TextBlock x:Name="PageList" Visibility="Hidden" Text="{Binding Page}" />
+                            <TextBlock x:Name="ISBNList" Visibility="Hidden" Text="{Binding ISBN}" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <Button x:Name="buttonExit" Click="buttonExit_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Back" Width="70" />
+        <Button x:Name="buttonSend" Click="buttonSend_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,0,0,10" Content="Send order" Width="110" />
     </Grid>
 </Window>

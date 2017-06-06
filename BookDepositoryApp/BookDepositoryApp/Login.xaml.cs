@@ -30,5 +30,10 @@ namespace BookDepositoryApp
             customization.Show();
             this.Close();
         }
+
+        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

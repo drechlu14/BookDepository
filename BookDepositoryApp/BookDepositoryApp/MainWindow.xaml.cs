@@ -84,12 +84,30 @@ namespace BookDepositoryApp
             this.Close();
         }
 
+        private void buttonComedy_Click(object sender, RoutedEventArgs e)
+        {
+            /*var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
+            ToDoItemsListView.ItemsSource = itemsFromDb;*/
+
+
+        }
+
+        private void buttonDrama_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void buttonFantasy_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void buttonHistorical_Click(object sender, RoutedEventArgs e)
+        private void buttonHorror_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonMythology_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -98,6 +116,12 @@ namespace BookDepositoryApp
         {
 
         }
+
+        private void buttonTragedy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
