@@ -5,33 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookDepositoryApp"
         mc:Ignorable="d"
-        Title="Book Depository" Height="550" Width="725" >
-    <StackPanel>
+        Title="Book Depository" Height="550" Width="725" WindowStartupLocation="CenterScreen" >
+    <Grid RenderTransformOrigin="0.538,0.505">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
         <TextBox x:Name="NameMain" Visibility="Collapsed" Text="{Binding Name}"/>
         <TextBox x:Name="AuthorMain" Visibility="Collapsed" Text="{Binding Author}"/>
         <TextBox x:Name="GenreMain" Visibility="Collapsed" Text="{Binding Genre}"/>
         <TextBox x:Name="PageMain" Visibility="Collapsed" Text="{Binding Page}"/>
         <TextBox x:Name="ISBNMain" Visibility="Collapsed" Text="{Binding ISBN}"/>
-        
 
-        <Label Content="Books" FontSize="22" FontWeight="DemiBold" />
-        <Label x:Name="ItemsCount" />
-        <ListView x:Name="ToDoItemsListView" SelectionChanged="ShowInfo_Click" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel>
-                        <TextBlock x:Name="IDList" Visibility="Hidden" Text="{Binding ID}" />
-                        <TextBlock x:Name="NameList" Text="{Binding Name}" FontWeight="Bold" />
+        <StackPanel>
+            <Label Content="Books" FontSize="22" FontWeight="DemiBold" />
+            <Label x:Name="ItemsCount" Visibility="Hidden" />
+            
+            <Button Grid.Column="0" x:Name="buttonComedy" Click="buttonComedy_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Comedy" Width="105" />
+            <Button Grid.Column="0" x:Name="buttonDrama" Click="buttonDrama_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Drama" Width="105" />
+            <Button Grid.Column="0" x:Name="buttonFantasy" Click="buttonFantasy_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Fantasy" Width="105" />
+            <Button Grid.Column="0" x:Name="buttonHorror" Click="buttonHorror_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Horror" Width="105" />
+            <Button Grid.Column="0" x:Name="buttonMythology" Click="buttonMythology_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Mythology" Width="105" />
+            <Button Grid.Column="0" x:Name="buttonRomance" Click="buttonRomance_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Romantic" Width="105" />
+            <Button Grid.Column="0" x:Name="buttonTragedy" Click="buttonTragedy_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Tragedy" Width="105" />
+            
+
+        </StackPanel>
+
+        <Button Grid.Row="1" x:Name="buttonLogin" Click="buttonLogin_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Login" Width="100" />
+        <Button Grid.Row="1" Grid.Column="1" x:Name="buttonBasket" Click="buttonBasket_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,0,10,10" Content="Basket" Width="100" />
+
+        <ListView Grid.Column="1" Margin="0,60,0,0" Width="600" x:Name="ToDoItemsListView" SelectionChanged="ShowInfo_Click" HorizontalAlignment="Right" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Margin="20,0,0,10">
+                            <TextBlock x:Name="IDList" Visibility="Hidden" Text="{Binding ID}" />
+                            <TextBlock x:Name="NameList" Text="{Binding Name}" FontWeight="Bold" />
+                            <TextBlock Text=" " />
+                            <TextBlock x:Name="AuthorList" Text="{Binding Author}" FontWeight="Bold" />
                         <TextBlock Text=" " />
-                        <TextBlock x:Name="AuthorList" Text="{Binding Author}" FontWeight="Bold" />
+                        <TextBlock x:Name="PriceList" Text="{Binding Price}" FontWeight="Bold" />
                         <TextBlock x:Name="GenreList" Visibility="Hidden" Text="{Binding Genre}" />
-                        <TextBlock x:Name="PageList" Visibility="Hidden" Text="{Binding Page}" />
-                        <TextBlock x:Name="ISBNList" Visibility="Hidden" Text="{Binding ISBN}" />
-                    </WrapPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+                            <TextBlock x:Name="PageList" Visibility="Hidden" Text="{Binding Page}" />
+                            <TextBlock x:Name="ISBNList" Visibility="Hidden" Text="{Binding ISBN}" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
         </ListView>
-
-
-    </StackPanel>
+        
+        
+    </Grid>
 </Window>

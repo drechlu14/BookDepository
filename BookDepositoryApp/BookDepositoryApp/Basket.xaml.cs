@@ -23,5 +23,32 @@ namespace BookDepositoryApp
         {
             InitializeComponent();
         }
+
+        private static BookDatabase _database;
+        public static BookDatabase Database
+        {
+            get
+            {
+                if (_database == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _database = new BookDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _database;
+            }
+        }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow customization = new MainWindow();
+            customization.Show();
+            this.Close();
+        }
+        private void buttonSend_Click(object sender, RoutedEventArgs e)
+        {
+            Tracking customization = new Tracking();
+            customization.Show();
+            this.Close();
+        }
     }
 }

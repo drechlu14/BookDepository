@@ -53,5 +53,11 @@ namespace BookDepositoryApp
             customization.Show();
             this.Close();
         }
+        private void buttonBuy_Click(object sender, RoutedEventArgs e)
+        {
+            Basket customization = new Basket();
+            customization.Show();
+            this.Close();
+        }
     }
 }

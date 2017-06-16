@@ -16,6 +16,8 @@ namespace BookDepositoryApp
         public string Genre { get; set; }
         public int Page { get; set; }
         public string ISBN { get; set; }
+        public int Price { get; set; }
+        public Order BookID { get; set; }
 
         public DateTime Date { get; set; }
         public int Done { get; set; }

@@ -23,5 +23,17 @@ namespace BookDepositoryApp
         {
             InitializeComponent();
         }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow customization = new MainWindow();
+            customization.Show();
+            this.Close();
+        }
+
+        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
