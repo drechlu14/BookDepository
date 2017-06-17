@@ -23,5 +23,12 @@ namespace BookDepositoryApp
         {
             InitializeComponent();
         }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow customization = new MainWindow();
+            customization.Show();
+            this.Close();
+        }
     }
 }

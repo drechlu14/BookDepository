@@ -5,9 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookDepositoryApp"
         mc:Ignorable="d"
-        Title="Tracking" Height="550" Width="725" >
+        Title="Tracking" Height="550" Width="725" WindowStartupLocation="CenterScreen" >
     <Grid>
-        <Label x:Name="TrackingOrder" Content="Tracking order" FontSize="22" FontWeight="DemiBold" />
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <Label x:Name="TrackingOrder" Content="Tracking order" FontSize="22" FontWeight="DemiBold" />
+            <Label x:Name="TrackingOrderText" Content="Your order was successfully sent. You can go back to the shop." FontSize="20" FontWeight="DemiBold" />
+        </StackPanel>
+
+        <Button x:Name="buttonExit" Click="buttonExit_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Back" Width="70" />
     </Grid>
 </Window>

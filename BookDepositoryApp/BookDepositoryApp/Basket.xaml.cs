@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,20 +20,26 @@ namespace BookDepositoryApp
     /// </summary>
     public partial class Basket : Window
     {
+        ObservableCollection<BookBasket> itemsFromDb;
+
         public Basket()
         {
             InitializeComponent();
+
+            itemsFromDb = new ObservableCollection<BookBasket>(Database.GetBooks().Result);
+            ToDoItemsListView.ItemsSource = itemsFromDb;
+
         }
 
-        private static BookDatabase _database;
-        public static BookDatabase Database
+        private static BookBasketDatabase _database;
+        public static BookBasketDatabase Database
         {
             get
             {
                 if (_database == null)
                 {
                     var fileHelper = new FileHelper();
-                    _database = new BookDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                    _database = new BookBasketDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
                 }
                 return _database;
             }
@@ -46,6 +53,8 @@ namespace BookDepositoryApp
         }
         private void buttonSend_Click(object sender, RoutedEventArgs e)
         {
+            Database.DeleteBooks();
+
             Tracking customization = new Tracking();
             customization.Show();
             this.Close();

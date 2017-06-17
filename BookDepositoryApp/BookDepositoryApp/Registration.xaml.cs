@@ -19,54 +19,57 @@ namespace BookDepositoryApp
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class Registration : Window
     {
         ObservableCollection<User> users;
 
-        public Login()
+        public Registration()
         {
             InitializeComponent();
         }
 
-        public void LoginMethode()
+        public void RegistrationMethode()
         {
-            string name = UsernameLogin.Text;
-            string password = PasswordLogin.Text;
-            string passDat = "";
-            int ID = 0;
+            string name = UsernameRegistration.Text;
+            string password = PasswordRegistration.Text;
+            string passwordCheck = PasswordCheckRegistration.Text;
             bool test = false;
-            //int decision = 0;
 
-            if (name != "" & password != "")
+            if (name != "" & password != "" & passwordCheck != "")
             {
-                users = new ObservableCollection<User>(Database.GetUsers().Result);
+                users = new ObservableCollection<User>(DatabaseUser.GetUsers().Result);
+                //var userCount = App.UserDatabase.GetUsers().Result;
                 foreach (var myUser in users)
                 {
                     if (myUser.Name == name)
                     {
-                        ID = myUser.ID;
                         test = true;
-                        passDat = myUser.Password;
-                        //decision = house.Choice;
                     }
+
                 }
-                if (test)
+                if (!test)
                 {
-                    string passHash = GetStringSha256Hash(password);
-                    if (passHash == passDat)
+                    if (password == passwordCheck)
                     {
-                        MainWindow Page = new MainWindow();
-                        Page.Show();
-                        this.Close();
+                        string passwordHash = GetStringSha256Hash(password);
+                        User user = new User();
+                        user.Done = 0;
+                        user.Name = name;
+                        user.Password = passwordHash;                      
+                        DatabaseUser.SaveItemAsync(user);
+                        Error.Content = "Account was successfully created!";
+                        UsernameRegistration.Text = "";
+                        PasswordRegistration.Text = "";
+                        PasswordCheckRegistration.Text = "";
                     }
                     else
                     {
-                        Error.Content = "";
+                        Error.Content = "Passwords doesn't match!";
                     }
                 }
                 else
                 {
-                    Error.Content = "Check your data.";
+                    Error.Content = "Account already exists!";
                 }
 
             }
@@ -85,37 +88,31 @@ namespace BookDepositoryApp
             }
         }
 
-        private static UserDatabase _database;
-        public static UserDatabase Database
+        private static UserDatabase _userDatabase;
+        public static UserDatabase DatabaseUser
         {
             get
             {
-                if (_database == null)
+                if (_userDatabase == null)
                 {
                     var fileHelper = new FileHelper();
-                    _database = new UserDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                    _userDatabase = new UserDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
                 }
-                return _database;
+                return _userDatabase;
             }
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow customization = new MainWindow();
+            Login customization = new Login();
             customization.Show();
             this.Close();
         }
 
         private void buttonRegistration_Click(object sender, RoutedEventArgs e)
         {
-            Registration customization = new Registration();
-            customization.Show();
-            this.Close();
-        }
-
-        private void buttonLogin_Click(object sender, RoutedEventArgs e)
-        {
-            
+            Error.Content = "";
+            RegistrationMethode();
         }
     }
 }

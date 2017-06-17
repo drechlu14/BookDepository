@@ -10,7 +10,7 @@
       
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="2*" />
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="8*" />
@@ -29,9 +29,6 @@
                             <TextBlock x:Name="AuthorList" Text="{Binding Author}" FontWeight="Bold" />
                             <TextBlock Text=" " />
                             <TextBlock x:Name="PriceList" Text="{Binding Price}" FontWeight="Bold" />
-                            <TextBlock x:Name="GenreList" Visibility="Hidden" Text="{Binding Genre}" />
-                            <TextBlock x:Name="PageList" Visibility="Hidden" Text="{Binding Page}" />
-                            <TextBlock x:Name="ISBNList" Visibility="Hidden" Text="{Binding ISBN}" />
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

@@ -7,19 +7,14 @@ using SQLite;
 
 namespace BookDepositoryApp
 {
-    public class Book
+    public class BookBasket
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Name { get; set; }
         public string Author { get; set; }
-        public string Genre { get; set; }
-        public int Page { get; set; }
-        public string ISBN { get; set; }
         public int Price { get; set; }
         public string BookID { get; set; }
-
-        public DateTime Date { get; set; }
         public int Done { get; set; }
     }
 }

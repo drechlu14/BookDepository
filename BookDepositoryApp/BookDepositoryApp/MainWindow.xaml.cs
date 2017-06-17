@@ -30,7 +30,7 @@ namespace BookDepositoryApp
             InitializeComponent();
 
             itemsFromDb = new ObservableCollection<Book>(Database.GetBooks().Result);
-            if (itemsFromDb.Count < 2)
+            if (itemsFromDb.Count < 3)
             {
                 Book book = new Book();
                 book.Name = "Harry Potter 1";
@@ -48,9 +48,19 @@ namespace BookDepositoryApp
                 book1.Genre = "Fantasy";
                 book1.Page = 258;
                 book1.ISBN = "8119898198180";
-                book.Price = 282;
+                book1.Price = 282;
                 book1.Done = 0;
                 Database.SaveItemAsync(book1);
+
+                Book book2 = new Book();
+                book2.Name = "The Kite Runner";
+                book2.Author = "Khaled Hosseini";
+                book2.Genre = "Drama";
+                book2.Page = 360;
+                book2.ISBN = "9788085336399";
+                book2.Price = 300;
+                book2.Done = 0;
+                Database.SaveItemAsync(book2);
             }
 
             ItemsCount.Content = "Items in Database " + itemsFromDb.Count;
@@ -88,18 +98,23 @@ namespace BookDepositoryApp
         {
             /*var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
             ToDoItemsListView.ItemsSource = itemsFromDb;*/
-
+           
 
         }
 
         private void buttonDrama_Click(object sender, RoutedEventArgs e)
         {
-
+            string GetGenre = "Drama";
+            var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
+            ToDoItemsListView.ItemsSource = itemsFromDb;
         }
 
         private void buttonFantasy_Click(object sender, RoutedEventArgs e)
         {
 
+            string GetGenre = "Fantasy";
+            var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
+            ToDoItemsListView.ItemsSource = itemsFromDb;
         }
 
         private void buttonHorror_Click(object sender, RoutedEventArgs e)

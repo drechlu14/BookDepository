@@ -1,11 +1,11 @@
-﻿<Window x:Class="BookDepositoryApp.Login"
+﻿<Window x:Class="BookDepositoryApp.Registration"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookDepositoryApp"
         mc:Ignorable="d"
-        Title="Login" Height="550" Width="725" WindowStartupLocation="CenterScreen" >
+        Title="Registration" Height="550" Width="725" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -16,18 +16,17 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Label x:Name="UserLogin" Content="User login" FontSize="22" FontWeight="DemiBold" />
+        <Label x:Name="UserRegistration" Content="User registration" FontSize="22" FontWeight="DemiBold" />
 
         <StackPanel Grid.Column="1">
-            <TextBox x:Name="UsernameLogin" Text="Username" FontSize="22"/>
-            <TextBox x:Name="PasswordLogin" Text="Password" FontSize="22"/>
-            <Button Grid.Column="0" x:Name="buttonFantasy" Click="buttonLogin_Click" HorizontalAlignment="Center" Margin="10,10,0,10" Content="Login" Width="200" />
+            <TextBox x:Name="UsernameRegistration" Text="Username" FontSize="22"/>
+            <TextBox x:Name="PasswordRegistration" Text="Password" FontSize="22"/>
+            <TextBox x:Name="PasswordCheckRegistration" Text="Password Check" FontSize="22"/>
+            <Button Grid.Column="0" x:Name="buttonRegistration" Click="buttonRegistration_Click" HorizontalAlignment="Center" Margin="10,10,0,10" Content="Registration" Width="200" />
             <Label x:Name="Error" FontSize="20" />
         </StackPanel>
 
         <Button Grid.Row="1" x:Name="buttonBack" Click="buttonBack_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Back" Width="100" />
-        <Button Grid.Row="1" Grid.Column="1" x:Name="buttonRegistration" Click="buttonRegistration_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Registration" Width="120" />
-        <Label Grid.Row="1" Grid.Column="1" x:Name="AccountInfo" Content="Register your new account." VerticalAlignment="Bottom" FontSize="20" Margin="140,0,0,10" />
-        
+
     </Grid>
 </Window>

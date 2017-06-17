@@ -11,10 +11,9 @@ namespace BookDepositoryApp.Class
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public string Email { get; set; }
+        public int Done { get; set; }
+        public string Name { get; set; }
         public string Password { get; set; }
-        public Order OrderID { get; set; }
-        public UserGenre UserGenreID { get; set; }
 
 
         public DateTime Date { get; set; }

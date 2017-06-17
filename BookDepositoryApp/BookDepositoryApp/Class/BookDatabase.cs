@@ -15,7 +15,7 @@ namespace BookDepositoryApp
         public BookDatabase(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
-            //database.CreateTableAsync<Book>().Wait();
+            database.CreateTableAsync<Book>().Wait();
         }
 
         // Query using SQL query string
@@ -33,7 +33,7 @@ namespace BookDepositoryApp
         }
         public Task<List<Book>> GetBooksByGenre(string GetGenre)
         {
-            return database.QueryAsync<Book>("DELETE FROM [Book] WHERE [Genre] =" + GetGenre);
+            return database.QueryAsync<Book>("SELECT * FROM [Book] WHERE [Genre] =" + GetGenre);
         }
 
         public Task<Book> GetBook(int id)
