@@ -21,7 +21,7 @@ namespace BookDepositoryApp
     /// </summary>
     public partial class Login : Window
     {
-        ObservableCollection<User> users;
+        ObservableCollection<Customer> users;
 
         public Login()
         {
@@ -39,7 +39,7 @@ namespace BookDepositoryApp
 
             if (name != "" & password != "")
             {
-                users = new ObservableCollection<User>(Database.GetUsers().Result);
+                users = new ObservableCollection<Customer>(Database.GetCustomers().Result);
                 foreach (var myUser in users)
                 {
                     if (myUser.Name == name)
@@ -61,7 +61,7 @@ namespace BookDepositoryApp
                     }
                     else
                     {
-                        Error.Content = "";
+                        Error.Content = "Something";
                     }
                 }
                 else
@@ -85,15 +85,15 @@ namespace BookDepositoryApp
             }
         }
 
-        private static UserDatabase _database;
-        public static UserDatabase Database
+        private static CustomerDatabase _database;
+        public static CustomerDatabase Database
         {
             get
             {
                 if (_database == null)
                 {
                     var fileHelper = new FileHelper();
-                    _database = new UserDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                    _database = new CustomerDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
                 }
                 return _database;
             }
@@ -115,7 +115,7 @@ namespace BookDepositoryApp
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            
+            LoginMethode();
         }
     }
 }

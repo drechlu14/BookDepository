@@ -21,12 +21,27 @@ namespace BookDepositoryApp
     /// </summary>
     public partial class Registration : Window
     {
-        ObservableCollection<User> users;
+        ObservableCollection<Customer> users;
+        ObservableCollection<Customer> itemsFromDb;
 
         public Registration()
         {
             InitializeComponent();
+
+            //App.DatabaseUser.CreateUsers();
+            //itemsFromDb = new ObservableCollection<User>(DatabaseUser.GetUsers().Result);
+            /*if (itemsFromDb.Count < 2)
+            {
+                User user = new User();
+                user.Done = 0;
+                user.Name = "Joe";
+                user.Password = "1234";
+                DatabaseUser.SaveItemAsync(user);
+            }*/
+            //ToDoItemsListView.ItemsSource = itemsFromDb;
         }
+
+        
 
         public void RegistrationMethode()
         {
@@ -37,7 +52,7 @@ namespace BookDepositoryApp
 
             if (name != "" & password != "" & passwordCheck != "")
             {
-                users = new ObservableCollection<User>(DatabaseUser.GetUsers().Result);
+                var users = DatabaseUser.GetCustomers().Result;
                 //var userCount = App.UserDatabase.GetUsers().Result;
                 foreach (var myUser in users)
                 {
@@ -52,7 +67,7 @@ namespace BookDepositoryApp
                     if (password == passwordCheck)
                     {
                         string passwordHash = GetStringSha256Hash(password);
-                        User user = new User();
+                        Customer user = new Customer();
                         user.Done = 0;
                         user.Name = name;
                         user.Password = passwordHash;                      
@@ -88,17 +103,17 @@ namespace BookDepositoryApp
             }
         }
 
-        private static UserDatabase _userDatabase;
-        public static UserDatabase DatabaseUser
+        private static CustomerDatabase _user;
+        public static CustomerDatabase DatabaseUser
         {
             get
             {
-                if (_userDatabase == null)
+                if (_user == null)
                 {
                     var fileHelper = new FileHelper();
-                    _userDatabase = new UserDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                    _user = new CustomerDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
                 }
-                return _userDatabase;
+                return _user;
             }
         }
 

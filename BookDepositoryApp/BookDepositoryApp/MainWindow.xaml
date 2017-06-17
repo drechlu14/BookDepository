@@ -37,6 +37,7 @@
 
         </StackPanel>
 
+        <Label x:Name="LoggedCustomer" Content="{Binding Name}" Grid.Column="1" FontSize="22" />
         <Button Grid.Row="1" x:Name="buttonLogin" Click="buttonLogin_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Login" Width="100" />
         <Button Grid.Row="1" Grid.Column="1" x:Name="buttonBasket" Click="buttonBasket_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,0,10,10" Content="Basket" Width="100" />
 

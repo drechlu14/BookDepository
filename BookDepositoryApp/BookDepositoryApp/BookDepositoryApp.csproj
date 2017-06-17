@@ -188,9 +188,9 @@
     <Compile Include="Class\Author.cs" />
     <Compile Include="Class\BookBasket.cs" />
     <Compile Include="Class\BookBasketDatabase.cs" />
+    <Compile Include="Class\Customer.cs" />
+    <Compile Include="Class\CustomerDatabase.cs" />
     <Compile Include="Class\Genre.cs" />
-    <Compile Include="Class\User.cs" />
-    <Compile Include="Class\UserDatabase.cs" />
     <Compile Include="Class\UserGenre.cs" />
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>

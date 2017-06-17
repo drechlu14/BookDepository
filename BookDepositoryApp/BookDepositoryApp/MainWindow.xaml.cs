@@ -24,12 +24,14 @@ namespace BookDepositoryApp
     public partial class MainWindow : Window
     {
         ObservableCollection<Book> itemsFromDb;
+        ObservableCollection<Customer> itemsFromDb2;
 
         public MainWindow()
         {
             InitializeComponent();
 
             itemsFromDb = new ObservableCollection<Book>(Database.GetBooks().Result);
+            itemsFromDb2 = new ObservableCollection<Customer>(CDatabase.GetCustomers().Result);
             if (itemsFromDb.Count < 3)
             {
                 Book book = new Book();
@@ -65,6 +67,7 @@ namespace BookDepositoryApp
 
             ItemsCount.Content = "Items in Database " + itemsFromDb.Count;
             ToDoItemsListView.ItemsSource = itemsFromDb;
+            LoggedCustomer.Content = "Account: " + itemsFromDb2;
         }
 
         private static BookDatabase _database;
@@ -78,6 +81,20 @@ namespace BookDepositoryApp
                     _database = new BookDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
                 }
                 return _database;
+            }
+        }
+
+        private static CustomerDatabase _Cdatabase;
+        public static CustomerDatabase CDatabase
+        {
+            get
+            {
+                if (_Cdatabase == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _Cdatabase = new CustomerDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _Cdatabase;
             }
         }
 
