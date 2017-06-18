@@ -23,7 +23,7 @@ namespace BookDepositoryApp
         {
             return database.QueryAsync<Customer>("SELECT * FROM [Customer]");
         }
-        public Task<List<Customer>> DeleteBooks()
+        public Task<List<Customer>> LogoutCustomers()
         {
             return database.QueryAsync<Customer>("DELETE FROM [Customer]");
         }

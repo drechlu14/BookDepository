@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static BookDepositoryApp.Login;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace BookDepositoryApp
@@ -67,7 +68,20 @@ namespace BookDepositoryApp
 
             ItemsCount.Content = "Items in Database " + itemsFromDb.Count;
             ToDoItemsListView.ItemsSource = itemsFromDb;
-            LoggedCustomer.Content = "Account: " + itemsFromDb2;
+            CustomerView.ItemsSource = itemsFromDb2;
+            //LoggedCustomer.Text = itemsFromDb2.ToString();
+
+            if (MyStaticValues.login)
+            {
+                buttonLogin.Visibility = Visibility.Hidden;
+                buttonLogout.Visibility = Visibility.Visible;
+            }
+            if (!MyStaticValues.login)
+            {
+                buttonLogin.Visibility = Visibility.Visible;
+                buttonLogout.Visibility = Visibility.Hidden;
+            }
+
         }
 
         private static BookDatabase _database;
@@ -109,14 +123,14 @@ namespace BookDepositoryApp
             BookDetail customization = new BookDetail(book);
             customization.Show();
             this.Close();
-        }
+        }      
+        
 
         private void buttonComedy_Click(object sender, RoutedEventArgs e)
         {
-            /*var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
-            ToDoItemsListView.ItemsSource = itemsFromDb;*/
-           
-
+            string GetGenre = "Comedy";
+            var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
+            ToDoItemsListView.ItemsSource = itemsFromDb;
         }
 
         private void buttonDrama_Click(object sender, RoutedEventArgs e)
@@ -128,7 +142,6 @@ namespace BookDepositoryApp
 
         private void buttonFantasy_Click(object sender, RoutedEventArgs e)
         {
-
             string GetGenre = "Fantasy";
             var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
             ToDoItemsListView.ItemsSource = itemsFromDb;
@@ -136,27 +149,73 @@ namespace BookDepositoryApp
 
         private void buttonHorror_Click(object sender, RoutedEventArgs e)
         {
-
+            string GetGenre = "Horror";
+            var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
+            ToDoItemsListView.ItemsSource = itemsFromDb;
         }
 
         private void buttonMythology_Click(object sender, RoutedEventArgs e)
         {
-
+            string GetGenre = "Mythology";
+            var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
+            ToDoItemsListView.ItemsSource = itemsFromDb;
         }
 
         private void buttonRomance_Click(object sender, RoutedEventArgs e)
         {
-
+            string GetGenre = "Romance";
+            var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
+            ToDoItemsListView.ItemsSource = itemsFromDb;
         }
 
         private void buttonTragedy_Click(object sender, RoutedEventArgs e)
         {
+            string GetGenre = "Tragedy";
+            var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
+            ToDoItemsListView.ItemsSource = itemsFromDb;
+        }
 
+        private void buttonComedyFav_Click(object sender, RoutedEventArgs e)
+        {
+            buttonComedy.Background = Brushes.Yellow;
+        }
+        private void buttonDramaFav_Click(object sender, RoutedEventArgs e)
+        {
+            buttonDrama.Background = Brushes.DarkOrange;
+        }
+        private void buttonFantasyFav_Click(object sender, RoutedEventArgs e)
+        {
+            buttonFantasy.Background = Brushes.DarkOrange;
+        }
+        private void buttonHorrorFav_Click(object sender, RoutedEventArgs e)
+        {
+            buttonHorror.Background = Brushes.DarkOrange;
+        }
+        private void buttonMythologyFav_Click(object sender, RoutedEventArgs e)
+        {
+            buttonMythology.Background = Brushes.DarkOrange;
+        }
+        private void buttonRomanceFav_Click(object sender, RoutedEventArgs e)
+        {
+            buttonRomance.Background = Brushes.DarkOrange;
+        }
+        private void buttonTragedyFav_Click(object sender, RoutedEventArgs e)
+        {
+            buttonTragedy.Background = Brushes.DarkOrange;
         }
 
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
+            Login customization = new Login();
+            customization.Show();
+            this.Close();
+        }
+
+        private void buttonLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MyStaticValues.login = false;
+            CDatabase.LogoutCustomers();
             Login customization = new Login();
             customization.Show();
             this.Close();
@@ -168,5 +227,6 @@ namespace BookDepositoryApp
             customization.Show();
             this.Close();
         }
+
     }
 }

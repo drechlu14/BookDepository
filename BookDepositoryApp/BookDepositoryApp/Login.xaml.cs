@@ -55,13 +55,14 @@ namespace BookDepositoryApp
                     string passHash = GetStringSha256Hash(password);
                     if (passHash == passDat)
                     {
+                        MyStaticValues.login = true;
                         MainWindow Page = new MainWindow();
                         Page.Show();
                         this.Close();
                     }
                     else
                     {
-                        Error.Content = "Something";
+                        Error.Content = "Wrong password.";
                     }
                 }
                 else
@@ -113,9 +114,15 @@ namespace BookDepositoryApp
             this.Close();
         }
 
+        public static class MyStaticValues
+        {
+            public static bool login { get; set; }
+        }
+
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
             LoginMethode();
+            MyStaticValues.login = true;
         }
     }
 }
