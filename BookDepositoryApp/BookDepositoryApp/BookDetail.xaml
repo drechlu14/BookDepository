@@ -24,8 +24,7 @@
             <Label x:Name="GenreDetail" />
             <Label x:Name="PageDetail" />
             <Label x:Name="ISBNDetail" />
-            <Label x:Name="BookCreationDate" />
-            <Label x:Name="BookEditDate" />
+            <Label x:Name="BookPriceDetail" />
         </StackPanel>
         
         <Button x:Name="buttonExit" Click="buttonExit_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Back" Width="70" />

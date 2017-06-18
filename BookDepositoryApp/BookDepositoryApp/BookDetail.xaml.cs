@@ -28,10 +28,10 @@ namespace BookDepositoryApp
 
             NameDetail.Content = "Book: " + book.Name;
             AuthorDetail.Content = "Author: " + book.Author;
-            GenreDetail.Content = "Genres: " + book.Genre;
+            GenreDetail.Content = "Genre: " + book.Genre;
             PageDetail.Content = "Pages: " + book.Page;
             ISBNDetail.Content = "ISBN: " + book.ISBN;
-            BookCreationDate.Content = "Timestamp: " + book.Date;
+            BookPriceDetail.Content = "Price: " + book.Price;
             this._user = book;
         }
 
@@ -61,10 +61,11 @@ namespace BookDepositoryApp
 
             string nameForBasket = Convert.ToString(NameDetail.Content);
             string authorForBasket = Convert.ToString(AuthorDetail.Content);
+            string priceForBasket = Convert.ToString(BookPriceDetail.Content);
             BookBasket book = new BookBasket();
             book.Name = nameForBasket;
             book.Author = authorForBasket;
-            book.Price = 300;
+            book.Price = priceForBasket;
             book.Done = 0;
             Database.SaveItemAsync(book);
 

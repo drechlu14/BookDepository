@@ -23,9 +23,10 @@
         <TextBox x:Name="ISBNMain" Visibility="Collapsed" Text="{Binding ISBN}"/>
 
         <StackPanel>
-            <Label Content="Books" FontSize="22" FontWeight="DemiBold" />
+            <Label Content="Book Depository" FontSize="22" FontWeight="DemiBold" Height="40" Margin="0,0,-60,-10" />
             <Label x:Name="ItemsCount" Visibility="Hidden" />
 
+            <Button Grid.Column="0" x:Name="buttonAll" Click="buttonAll_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="All books" Width="105" />
             <Button Grid.Column="0" x:Name="buttonComedy" Click="buttonComedy_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Comedy" Width="105" />
             <Button Grid.Column="0" x:Name="buttonDrama" Click="buttonDrama_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Drama" Width="105" />
             <Button Grid.Column="0" x:Name="buttonFantasy" Click="buttonFantasy_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Fantasy" Width="105" />
@@ -33,16 +34,7 @@
             <Button Grid.Column="0" x:Name="buttonMythology" Click="buttonMythology_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Mythology" Width="105" />
             <Button Grid.Column="0" x:Name="buttonRomance" Click="buttonRomance_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Romantic" Width="105" />
             <Button Grid.Column="0" x:Name="buttonTragedy" Click="buttonTragedy_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Tragedy" Width="105" />
-
-
         </StackPanel>
-        <Button Background="Yellow" x:Name="buttonComedyFav" Click="buttonComedyFav_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,365" Width="23" Grid.Column="1" Height="16" RenderTransformOrigin="0.435,0.5" />
-        <Button Background="Yellow" x:Name="buttonDramaFav" Click="buttonDramaFav_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,324" Width="23" Grid.Column="1" Height="16" />
-        <Button Background="Yellow" x:Name="buttonFantasyFav" Click="buttonFantasyFav_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,283" Width="23" Grid.Column="1" Height="16" />
-        <Button Background="Yellow" x:Name="buttonyHorrorFav" Click="buttonHorrorFav_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,240" Width="23" Grid.Column="1" Height="16" />
-        <Button Background="Yellow" x:Name="buttonMythologyFav" Click="buttonMythologyFav_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,195" Width="23" Grid.Column="1" Height="16" />
-        <Button Background="Yellow" x:Name="buttonRomanceFav" Click="buttonRomance_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,160" Width="23" Grid.Column="1" Height="16" />
-        <Button Background="Yellow" x:Name="buttonTragedyFav" Click="buttonTragedy_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,115" Width="23" Grid.Column="1" Height="16" />
 
         <ListView Grid.Column="1" Margin="0,0,0,0" Width="200" x:Name="CustomerView" HorizontalAlignment="Right" >
             <ListView.ItemTemplate>
@@ -59,7 +51,7 @@
         <Button Grid.Row="1" x:Name="buttonLogout" Click="buttonLogout_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Logout" Width="100" />
         <Button Grid.Row="1" Grid.Column="1" x:Name="buttonBasket" Click="buttonBasket_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,0,10,10" Content="Basket" Width="100" />
 
-        <ListView Grid.Column="1" Margin="0,50,0,10" Width="556" x:Name="ToDoItemsListView" SelectionChanged="ShowInfo_Click" HorizontalAlignment="Right" >
+        <ListView Grid.Column="1" Margin="0,50,0,10" Width="588" x:Name="ToDoItemsListView" SelectionChanged="ShowInfo_Click" HorizontalAlignment="Right" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Margin="20,0,0,10">

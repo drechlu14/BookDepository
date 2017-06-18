@@ -33,14 +33,14 @@ namespace BookDepositoryApp
 
             itemsFromDb = new ObservableCollection<Book>(Database.GetBooks().Result);
             itemsFromDb2 = new ObservableCollection<Customer>(CDatabase.GetCustomers().Result);
-            if (itemsFromDb.Count < 3)
+            if (itemsFromDb.Count < 7)
             {
                 Book book = new Book();
                 book.Name = "Harry Potter 1";
                 book.Author = "J. K. Rowling";
                 book.Genre = "Fantasy";
                 book.Page = 222;
-                book.ISBN = "8119898198189";
+                book.ISBN = "9789898198189";
                 book.Price = 274;
                 book.Done = 0;
                 Database.SaveItemAsync(book);
@@ -64,6 +64,47 @@ namespace BookDepositoryApp
                 book2.Price = 300;
                 book2.Done = 0;
                 Database.SaveItemAsync(book2);
+
+                Book book3 = new Book();
+                book3.Name = "Puckoon";
+                book3.Author = "Spike Milligan";
+                book3.Genre = "Comedy";
+                book3.Page = 160;
+                book3.ISBN = "9780140023749";
+                book3.Price = 269;
+                book3.Done = 0;
+                Database.SaveItemAsync(book3);
+
+                Book book4 = new Book();
+                book4.Name = "Another";
+                book4.Author = "Yukito Ayatsuji";
+                book4.Genre = "Horror";
+                book4.Page = 491;
+                book4.ISBN = "9780316339100";
+                book4.Price = 568;
+                book4.Done = 0;
+                Database.SaveItemAsync(book4);
+
+                Book book5 = new Book();
+                book5.Name = "A Song of Ice and Fire - Complete set";
+                book5.Author = "G. R. R. Martin";
+                book5.Genre = "Fantasy";
+                book5.Page = 4451;
+                book5.ISBN = "9780140023749";
+                book5.Price = 769;
+                book5.Done = 0;
+                Database.SaveItemAsync(book5);
+
+                Book book6 = new Book();
+                book6.Name = "Me Before You";
+                book6.Author = "G. R. R. Martin";
+                book6.Genre = "Romance";
+                book6.Page = 512;
+                book6.ISBN = "9780718157838";
+                book6.Price = 239;
+                book6.Done = 0;
+                Database.SaveItemAsync(book6);
+
             }
 
             ItemsCount.Content = "Items in Database " + itemsFromDb.Count;
@@ -123,8 +164,13 @@ namespace BookDepositoryApp
             BookDetail customization = new BookDetail(book);
             customization.Show();
             this.Close();
-        }      
-        
+        }
+
+        private void buttonAll_Click(object sender, RoutedEventArgs e)
+        {
+            var itemsFromDb = Database.GetBooks().Result;
+            ToDoItemsListView.ItemsSource = itemsFromDb;
+        }
 
         private void buttonComedy_Click(object sender, RoutedEventArgs e)
         {
@@ -174,36 +220,6 @@ namespace BookDepositoryApp
             var itemsFromDb = Database.GetBooksByGenre(GetGenre).Result;
             ToDoItemsListView.ItemsSource = itemsFromDb;
         }
-
-        private void buttonComedyFav_Click(object sender, RoutedEventArgs e)
-        {
-            buttonComedy.Background = Brushes.Yellow;
-        }
-        private void buttonDramaFav_Click(object sender, RoutedEventArgs e)
-        {
-            buttonDrama.Background = Brushes.DarkOrange;
-        }
-        private void buttonFantasyFav_Click(object sender, RoutedEventArgs e)
-        {
-            buttonFantasy.Background = Brushes.DarkOrange;
-        }
-        private void buttonHorrorFav_Click(object sender, RoutedEventArgs e)
-        {
-            buttonHorror.Background = Brushes.DarkOrange;
-        }
-        private void buttonMythologyFav_Click(object sender, RoutedEventArgs e)
-        {
-            buttonMythology.Background = Brushes.DarkOrange;
-        }
-        private void buttonRomanceFav_Click(object sender, RoutedEventArgs e)
-        {
-            buttonRomance.Background = Brushes.DarkOrange;
-        }
-        private void buttonTragedyFav_Click(object sender, RoutedEventArgs e)
-        {
-            buttonTragedy.Background = Brushes.DarkOrange;
-        }
-
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {

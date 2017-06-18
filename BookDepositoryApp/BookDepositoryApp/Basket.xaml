@@ -36,6 +36,6 @@
         </StackPanel>
 
         <Button x:Name="buttonExit" Click="buttonExit_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Content="Back" Width="70" />
-        <Button x:Name="buttonSend" Click="buttonSend_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,0,0,10" Content="Send order" Width="110" />
+        <Button x:Name="buttonSend" Click="buttonSend_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,0,20,10" Content="Send order" Width="110" />
     </Grid>
 </Window>
